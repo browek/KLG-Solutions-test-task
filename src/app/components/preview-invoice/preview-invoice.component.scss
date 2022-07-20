@@ -1,0 +1,21 @@
+.content {
+    margin: 15px;
+}table{
+    margin: 10px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+td, th {
+    padding: 6px 10px;
+}
+th {
+    font-size: 20px;
+}
+
+.sum {
+    text-align: right;
+}

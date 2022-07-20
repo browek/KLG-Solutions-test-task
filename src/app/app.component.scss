@@ -1,0 +1,18 @@
+:root {
+    height: 100vh;
+}
+
+mat-drawer-container {
+    height: 100vh;
+    
+}
+
+.toogle-icon {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .toogle-icon {
+        display: block;
+    }
+}

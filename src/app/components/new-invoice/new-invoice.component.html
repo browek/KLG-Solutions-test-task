@@ -1,0 +1,43 @@
+<form [formGroup]="dataForm" (ngSubmit)="submitForm()">
+
+  <div formArrayName="data">
+    <div class="inputs" *ngFor="let data of dataForm.get('data').controls; let i = index" [formGroupName]="i">
+      <mat-form-field appearance="legacy">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+        <mat-error *ngFor="let validation of validationMsgs.name">
+          <div *ngIf="data.get('name').hasError(validation.type)">
+            {{validation.message}}
+          </div>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label>Count</mat-label>
+        <input matInput value="1" formControlName="count">
+        <mat-error *ngFor="let validation of validationMsgs.count">
+          <div *ngIf="data.get('count').hasError(validation.type)">
+            {{validation.message}}
+          </div>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label>Price</mat-label>
+        <input matInput value="0" formControlName="price">
+        <mat-error *ngFor="let validation of validationMsgs.price">
+          <div *ngIf="data.get('price').hasError(validation.type)">
+            {{validation.message}}
+          </div>
+        </mat-error>
+      </mat-form-field>
+      <button mat-button color="primary" class="delete-icon">
+        <mat-icon (click)="removeItem(i)" aria-hidden="false">delete</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <button mat-button color="primary" class="add-icon" (click)="addFormGroup()">
+    <mat-icon aria-hidden="false">add</mat-icon>
+    Add new item
+  </button>
+  <button mat-raised-button color="primary" class="submit-button"  type="submit" >Submit</button>
+</form>
